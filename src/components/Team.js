@@ -11,27 +11,29 @@ export default class Team extends Component {
         }
     }
     componentDidMount(){
-        axios.get('/api/allPlayers')
+        axios.get('/api/players')
         .then(res => {
+            console.log(res)
             this.setState({
-                allPlayers: res.data
+                players: res.data
             })
         })
     }
     updatePlayers(id, body){
-        axios.put(`/api/allPlayers/${id}`, body)
+        axios.put(`/api/players/${id}`, body)
         .then(res => {
             this.setState({
-                allPlayers: res.data
+                players: res.data
             })
         })
     }
     deletePlayer(id){
-        axios.delete(`/api/allPlayers/${id}`)
+        axios.delete(`/api/players/${id}`)
         .then(res => {
             this.setState({
-                allPlayers: res.data 
+                players: res.data 
             })
+            
         })
     }
 
