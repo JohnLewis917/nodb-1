@@ -14,7 +14,7 @@ module.exports = {
     },
     updatePlayers: (req, res) => {
         const {id} = req.params
-        const {firstname, age, city, state, phone} = req.body
+        const {firstname, age, city, state, number} = req.body
         const index = players.findIndex(el => el.id === +id)
         if (firstname) {players[index].firstname = firstname }
         else if (lastname) {players[index].lastname = lastname}
