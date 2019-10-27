@@ -8,7 +8,7 @@ const app = express()
 
 app.use(express.json())
 
-app.post('/api/home', ctrl.addPlayers)
+app.post('/api/playerinfo', ctrl.addPlayers)
 app.get('/api/home', ctrl.getPlayers)
 app.put('/api/home/:id', ctrl.updatePlayers)
 app.delete('api/home/:id', ctrl.deletePlayers)
