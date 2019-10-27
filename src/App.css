@@ -1,28 +1,160 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 .App {
   text-align: center;
+}
+.home-outer {
+  background-color: lightgoldenrodyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+.text {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 200px;
+  width: 500px;
+  font-size: 24px;
+  padding-left: 100px;
+  margin-top: -150px;
+}
+.home-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: -200px;
+  padding: 50px 100px;
+  border-radius: 8px;
+  font-size: 36px;
+  background-color: green;
+  margin-left: -480px;
+
 }
 
 
 .playerinfo-outer {
+  background-color: lightgoldenrodyellow;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 10px;
+  height: 500px;
+  margin: 0;
+}
+.text-box {
+  font-size: 1.5rem;
+  width: 450px;
+}
+.input {
+  height: 25px;
+  width: 200px;
+  font-size: 1rem;
+  background-color: cadetblue;
+}
+.input::placeholder{
+  color: black;
 }
 .image {
   margin-right: 30px;
   margin-bottom: 30px;
 }
+.image-2 {
+  height: 100px;
+  width: 100px;
+  margin-right: 10px;
+  margin-left: -50px;
+  margin-right: 250px;
+  margin-top: 0px;
+  padding: 0
+}
+.image-3 {
+  height: 100px;
+  width: 100px;
+  margin-right: -500px;
+  margin-left: 100px;
+}
+.image-4 {
+  height: 350px;
+  width: 350px;
+  margin-left: -300px;
+}
 .header {
   display: flex;
   justify-content: space-around;
   background-color: lightblue;
+  font-size: 1.3rem;
   height: 80px;
   align-items: center;
   flex-direction: column;
-  
+}
+.title {
+  font-size: 2rem;
 }
 .links {
-  display: flex;
-  flex-direction: row;
+  display: inline-block;
+  flex-direction: row; 
   justify-content: space-between;
+  align-items: center;
+  margin-left: 30px;
+
 }
+.ind {
+  margin-right: 100px;
+}
+.team {
+  background-color: lightgoldenrodyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  height: 500px;
+  margin: 0;
+}
+
