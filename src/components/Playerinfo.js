@@ -15,7 +15,7 @@ export default class Playerinfo extends Component {
     };
   }
   submitPlayer() {
-    axios.post("/api/, this.state)
+    axios.post("/api/allPlayers", this.state)
     .then(res => {
         this.props.history.push('/team')
     });
