@@ -15,7 +15,7 @@ export default class Playerinfo extends Component {
     };
   }
   submitPlayer() {
-    axios.post("/api/", this.state)
+    axios.post("/api/, this.state)
     .then(res => {
         this.props.history.push('/team')
     });
@@ -23,12 +23,12 @@ export default class Playerinfo extends Component {
   render() {
       return (
           <div className = "playerinfo-outer">
-          <img className = "image"
+          {/* <img className = "image"
             src={`https://robohash.org/player.png`}
             width="125"
             height="125"
             alt=""
-          />
+          /> */}
         <form>
           
           <p>
@@ -52,7 +52,7 @@ export default class Playerinfo extends Component {
           <p>
             <input type="text" name="number" placeholder="###-###-####"/>
           </p>
-          <input type="submit" value="Submit" />
+          <input onClick={() => this.submitPlayer()} type="submit" value="Submit" />
         </form>
       </div>
     );
