@@ -1,6 +1,7 @@
 import React from 'react'
 import Playerinfo from './components/Playerinfo'
 import Team from './components/Team'
+import Home from './components/Home'
 import {Switch, Route} from 'react-router-dom'
 
 export default (
