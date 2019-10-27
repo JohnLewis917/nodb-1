@@ -11,7 +11,7 @@ export default class Team extends Component {
         }
     }
     componentDidMount(){
-        axios.get('/api/playerinfo')
+        axios.get('/api/allPlayers')
         .then(res => {
             this.setState({
                 allPlayers: res.data
@@ -19,7 +19,7 @@ export default class Team extends Component {
         })
     }
     updatePlayers(id, body){
-        axios.put(`/api/change/${id}`, body)
+        axios.put(`/api/allPlayers/${id}`, body)
         .then(res => {
             this.setState({
                 allPlayers: res.data
@@ -27,7 +27,7 @@ export default class Team extends Component {
         })
     }
     deletePlayer(id){
-        axios.delete(`/api/change/${id}`)
+        axios.delete(`/api/allPlayers/${id}`)
         .then(res => {
             this.setState({
                 allPlayers: res.data 
