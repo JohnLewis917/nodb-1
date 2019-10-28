@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Playerinfo from './Playerinfo'
+// import Playerinfo from './Playerinfo'
 import Change from './Change'
 import axios from 'axios'
 
