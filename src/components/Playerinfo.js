@@ -13,11 +13,17 @@ export default class Playerinfo extends Component {
       state: "",
       number: "",
     };
+    this.submitPlayer = this.submitPlayer.bind(this)/*is this correct*/
+  }
+  myChangeHandler = (event) => {
+    let nam = event.target.name;
+    let val = event.target.value;
+    this.setState({[nam]: val});
   }
   submitPlayer() {
     axios.post("/api/players", this.state)
-    .then(res => {console.log (res)
-        this.props.history.push('/')
+    .then(res => {console.log ('submitPlayer :', this)
+        // this.props.history.push('/team')
     });
   }
   render() {
@@ -25,28 +31,35 @@ export default class Playerinfo extends Component {
           <div className = "playerinfo-outer">
             <img className="image-2" src="http://www.clker.com/cliparts/e/0/6/3/12550941262092997998Olympic_sports_Athletics_pictogram.svg.hi.png" alt="run"/>
             <img className="image-3" src="http://www.clipartpanda.com/clipart_images/sport-clip-art-vector-clip-5496335/download" alt="bb"/>
-        <form className= "text-box" action="/controllers/controller">
+        <form className= "text-box" onSubmit={(e) => this.submitPlayer(e)}>
           
           <p>
-            <input className= "input" type="text" name="firstname" placeholder="First Name"/>
+            <input className= "input" type="text" 
+            onChange={ this.myChangeHandler } name="firstname" placeholder="First Name"/>
           </p>
           <p>
-            <input className= "input" type="text" name="lastname" placeholder="Last name"/>
+            <input className= "input" type="text"  
+            onChange={ this.myChangeHandler } name="lastname" placeholder="Last name"/>
           </p>
           <p>
-            <input className= "input" type="number" name="age" placeholder="Age"/>
+            <input className= "input" type="text" 
+            onChange={this.myChangeHandler} name="age" placeholder="Age"/>
           </p>
           <p>
-            <input className= "input" type="text" name="gender" placeholder="Gender" /> 
+            <input className= "input" type="text" 
+            onChange={this.myChangeHandler} name="gender" placeholder="Gender" /> 
           </p>
           <p>
-            <input className= "input" type="text" name="city" placeholder="City"/>
+            <input className= "input" type="text" 
+            onChange={ this.myChangeHandler } name="city" placeholder="City"/>
           </p>
           <p>
-            <input className= "input" type="text" name="state" placeholder="State"/>
+            <input className= "input" type="text" 
+            onChange={ this.myChangeHandler } name="state" placeholder="State"/>
           </p>
           <p>
-            <input className= "input" type="text" name="number" placeholder="###-###-####"/>
+            <input className= "input" type="text" 
+            onChange={ this.myChangeHandler } name="number" placeholder="###-###-####"/>
           </p>
           <input onClick={() => this.submitPlayer()} type="submit" value="Submit" />
         </form>
