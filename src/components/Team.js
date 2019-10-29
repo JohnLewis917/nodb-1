@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-// import Playerinfo from './Playerinfo'
 import Change from './Change'
 import axios from 'axios'
 
@@ -9,21 +8,26 @@ export default class Team extends Component {
         this.state = {
             allPlayers: []
         }
+        this.updatePlayer = this.updatePlayer.bind(this)
+        this.deletePlayer = this.deletePlayer.bind(this)
     }
     componentDidMount(){
         axios.get('/api/players')
         .then(res => {
-            console.log(res)
+            console.log(res, 'hit')
             this.setState({
-                players: res.data
+                allPlayers: res.data
             })
         })
+        
     }
-    updatePlayers(id, body){
+    updatePlayer(id, body){
         axios.put(`/api/players/${id}`, body)
         .then(res => {
+            console.log(res.data);
+            
             this.setState({
-                players: res.data
+                allPlayers: res.data
             })
         })
     }
@@ -31,7 +35,7 @@ export default class Team extends Component {
         axios.delete(`/api/players/${id}`)
         .then(res => {
             this.setState({
-                players: res.data 
+                allPlayers: res.data 
             })
             
         })
@@ -40,14 +44,12 @@ export default class Team extends Component {
     render() {
         return (
             <div className="team">
-                
                 {this.state.allPlayers.map(el => (
                 <Change changeObj={el} key={el.id}
                 updatePlayerFn={this.updatePlayer}
                 deletePlayerFn={this.deletePlayer}/>
                 ))}
-                <button onClick={() => this.editPlayer()}>Edit</button>
-                <button onClick={() => this.props.deletePlayer(this.props.pokemonObj.id)}>Delete</button>
+                
             </div>
         )
     }
