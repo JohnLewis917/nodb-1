@@ -6,7 +6,7 @@ module.exports = {
         res.status(200).send(players)
     },
     addPlayers: (req, res) => {
-        // const image = `https://robohash.org/${req.body.id}.png`
+        const image = `https://robohash.org/${req.body.id}.png`
         const newPlayer = {...req.body, id, image}
         players.push(newPlayer)
         id++
@@ -15,11 +15,12 @@ module.exports = {
         
     },
     updatePlayers: (req, res) => {
+        const image = `https://robohash.org/${req.body.id}.png`
         const {id} = req.params
         const {firstname, age, gender, city, state, number} = req.body
         console.log(req.body)
         const index = players.findIndex(el => el.id === +id)
-        players[index] ={id, ...req.body}
+        players[index] ={id, ...req.body, image}
 
         res.status(200).send(players)
     },
