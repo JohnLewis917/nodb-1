@@ -50,6 +50,7 @@ export default class Team extends Component {
                 deletePlayerFn={this.deletePlayer}/>
                 ))}
                 
+                
             </div>
         )
     }
