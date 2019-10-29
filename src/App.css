@@ -1,3 +1,5 @@
+/*CSS RESET SECTION*/
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -46,6 +48,19 @@ table {
 
 .App {
   text-align: center;
+}
+.robot {
+  height: 150px;
+  width: 150px;
+  margin-left: -150px;
+  margin-bottom: -120px;
+  display: flex;
+  justify-content: space-between;
+}
+.change-outer {
+  display: flex;
+  align-items: space-between;
+  margin-right: 125px;
 }
 .home-outer {
   background-color: lightgoldenrodyellow;
