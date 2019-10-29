@@ -6,23 +6,21 @@ module.exports = {
         res.status(200).send(players)
     },
     addPlayers: (req, res) => {
-        const image = `https://robohash.org/${req.body.name}.png`
+        // const image = `https://robohash.org/${req.body.id}.png`
         const newPlayer = {...req.body, id, image}
         players.push(newPlayer)
         id++
         res.status(200).send(players)
+        
+        
     },
     updatePlayers: (req, res) => {
         const {id} = req.params
-        const {firstname, age, city, state, number} = req.body
+        const {firstname, age, gender, city, state, number} = req.body
+        console.log(req.body)
         const index = players.findIndex(el => el.id === +id)
-        if (firstname) {players[index].firstname = firstname }
-        else if (lastname) {players[index].lastname = lastname}
-        else if (age) {players[index].age = age }
-        else if (gender) {players[index].gender = gender}
-        else if (city) {players[index].city = city}
-        else if (state) {players[index].state = state}
-        else if(number) {players[index].number = number}
+        players[index] ={id, ...req.body}
+
         res.status(200).send(players)
     },
     deletePlayers: (req, res) => {
