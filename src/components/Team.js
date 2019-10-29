@@ -48,7 +48,9 @@ export default class Team extends Component {
                 <Change changeObj={el} key={el.id}
                 updatePlayerFn={this.updatePlayer}
                 deletePlayerFn={this.deletePlayer}/>
+                
                 ))}
+               
                 
                 
             </div>
