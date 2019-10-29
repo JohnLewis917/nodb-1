@@ -1,99 +1,148 @@
-import React, {Component} from 'react'
+import React, { Component } from "react";
 
 export default class Change extends Component {
-    constructor(){
-        super()
-        this.state = {
-            firstname: "",
-            lastname: "",
-            age: "",
-            gender: "",
-            city: "",
-            state: "",
-            number: "",
-            edit: false
-        };
-    }
-    editItem(){
-        this.setState({edit: !this.state.edit})
-        if(this.state.edit && this.state.firstname){
-            this.props.updatePlayerFn(this.props.changeObj.id, {firstname: this.state.firstname})
-        }else if( this.state.edit && this.state.lastname){
-            this.props.updatePlayerFn(this.props.changeObj.id, {lastname: this.state.lastname})
-        }else if(this.state.edit && this.state.age){
-            this.props.updatePlayerFn(this.props.chaneObj.id, {age: this.state.age})
-        }else if(this.state.edit && this.state.gender){
-            this.props.updatePlayerFn(this.props.chaneObj.id, {gender: this.state.gender})
-        }else if(this.state.edit && this.state.city){
-            this.props.updatePlayerFn(this.props.chaneObj.id, {city: this.state.city})
-        }else if(this.state.edit && this.state.state){
-            this.props.updatePlayerFn(this.props.chaneObj.id, {state: this.state.state})
-        }else if(this.state.edit && this.state.number){
-            this.props.updatePlayerFn(this.props.chaneObj.id, {number: this.state.number})
-        }
-    }
-    handleChange(e){
-        this.setState({
-            firstname: e.target.value
-        })
-    }
-    handleChange(e){
-        this.setState({
-            lastname: e.target.value
-        })
-    }
-    handleChange(e){
-        this.setState({
-            age: e.target.value
-        })
-    }
-    handleChange(e){
-        this.setState({
-            gender: e.target.value
-        })
-    }
-    handleChange(e){
-        this.setState({
-            city: e.target.value  
-        })
-    }
-    handleChange(e){
-        this.setState({
-            state: e.target.value
-        })
-    }
-    handleChange(e){
-        this.setState({
-            number: e.target.value
-        })
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      firstname: props.changeObj.firstname,
+      lastname: props.changeObj.lastname,
+      age: props.changeObj.age,
+      gender: props.changeObj.gender,
+      city: props.changeObj.city,
+      state: props.changeObj.state,
+      number: props.changeObj.number,
+      edit: false
+    };
+  }
+  editItem() {
+    this.setState({ edit: !this.state.edit });
+    
+  }
+  handleFnChange(e) {
+      console.log(e.target.value)
+    this.setState({
+      firstname: e.target.value
+    });
+  }
+  handleLaChange(e) {
+    this.setState({
+      lastname: e.target.value
+    });
+  }
+  handleAgeChange(e) {
+    this.setState({
+      age: e.target.value
+    });
+  }
+  handleGenChange(e) {
+    this.setState({
+      gender: e.target.value
+    });
+  }
+  handleCityChange(e) {
+    this.setState({
+      city: e.target.value
+    });
+  }
+  handleStChange(e) {
+    this.setState({
+      state: e.target.value
+    });
+  }
+  handleNumChange(e) {
+    this.setState({
+      number: e.target.value
+    });
+  }
 
-    render(){
-        return(
-            <div>
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.firstname}
-                onChange={e => this.handleChange(e)} /> : null}
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.lastname}
-                onChange={e => this.handleChange(e)} /> : null}
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.age}
-                onChange={e => this.handleChange(e)} /> : null}
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.gender}
-                onChange={e => this.handleChange(e)} /> : null}
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.city}
-                onChange={e => this.handleChange(e)} /> : null}
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.state}
-                onChange={e => this.handleChange(e)} /> : null}
-                {this.state.editItem ?
-                <input placeholder={this.props.changeObj.number}
-                onChange={e => this.handleChange(e)} /> : null}
-            </div>
-        )
-    }
-
+  render() {
+    return (
+      <div className="change-outer">
+      <div>
+          <img className="robot" src={this.props.changeObj.image} alt="player"/>
+        {this.state.edit ? (
+          <input
+            value={this.state.firstname}
+            placeholder={this.props.changeObj.firstname}
+            onChange={e => this.handleFnChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.firstname}</h3>
+        )}
+        {this.state.edit ? (
+          <input
+            value={this.state.lastname}
+            placeholder={this.props.changeObj.lastname}
+            onChange={e => this.handleLaChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.lastname}</h3>
+        )}
+        {this.state.edit ? (
+          <input
+            value={this.state.age}
+            placeholder={this.props.changeObj.age}
+            onChange={e => this.handleAgeChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.age}</h3>
+        )}
+        {this.state.edit ? (
+          <input
+            value={this.state.gender}
+            placeholder={this.props.changeObj.gender}
+            onChange={e => this.handleGenChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.gender}</h3>
+        )}
+        {this.state.edit ? (
+          <input
+            value={this.state.city}
+            placeholder={this.props.changeObj.city}
+            onChange={e => this.handleCityChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.city}</h3>
+        )}
+        {this.state.edit ? (
+          <input
+            value={this.state.state}
+            placeholder={this.props.changeObj.state}
+            onChange={e => this.handleStChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.state}</h3>
+        )}
+        {this.state.edit ? (
+          <input
+            value={this.state.number}
+            placeholder={this.props.changeObj.number}
+            onChange={e => this.handleNumChange(e)}
+          />
+        ) : (
+          <h3>{this.props.changeObj.number}</h3>
+        )}
+        {this.state.edit ? (
+          <button onClick={() => this.props.updatePlayerFn(this.props.changeObj.id,{      
+              firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            age: this.state.age,
+            gender: this.state.gender,
+            city: this.state.city,
+            state: this.state.state,
+            number: this.state.number})}>
+                Submit</button>
+        ) : (
+          <button onClick={() => this.editItem()} type="edit">
+            Make Changes 
+          </button>
+        )}
+          <button onClick={() => this.props.deletePlayerFn(this.props.changeObj.id)}>
+              Delete
+            </button>
+         </div> 
+      </div>
+    );
+  }
 }
