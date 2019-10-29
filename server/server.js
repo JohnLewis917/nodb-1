@@ -8,9 +8,9 @@ const app = express()
 
 app.use(express.json())
 
-app.post('/api/playerinfo', ctrl.addPlayers)
-app.get('/api/allPlayers', ctrl.getPlayers)
-app.put('/api/home/:id', ctrl.updatePlayers)
-app.delete('api/home/:id', ctrl.deletePlayers)
+app.post('/api/players', ctrl.addPlayers)
+app.get('/api/players', ctrl.getPlayers)
+app.put('/api/players/:id', ctrl.updatePlayers)
+app.delete('/api/players/:id', ctrl.deletePlayers)
 
 app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} A Space Odessey`))
